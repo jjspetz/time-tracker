@@ -65,6 +65,8 @@
 </template>
 
 <script>
+  import eventHub from '../EventHub'
+
   export default {
     data () {
       // We want to start with an existing time entry
@@ -85,14 +87,22 @@
         timeEntries: [existingEntry]
       }
     },
+    created: function () {
+      eventHub.$on('save', this.save)
+    },
+    beforeDestroy: function () {
+      eventHub.$off('save', this.save)
+    },
     methods: {
       deleteTimeEntry (timeEntry) {
         // Get the index of the clicked time entry and splice it out
         let index = this.timeEntries.indexOf(timeEntry)
         if (window.confirm('Are you sure you want to delete this time entry?')) {
           this.timeEntries.splice(index, 1)
-          this.$dispatch('deleteTime', timeEntry)
         }
+      },
+      save (timeEntry) {
+        this.timeEntries.push(timeEntry)
       }
     },
     events: {

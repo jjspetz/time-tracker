@@ -35,13 +35,15 @@
     <router-link
         v-bind:to="'/time-entries/'">
           <a class="btn btn-primary">Cancel</a>
-      </router-link>  
+      </router-link>
     <hr>
   </div>
 
 </template>
 
 <script>
+  import eventHub from '../EventHub'
+
   export default {
     data () {
       return {
@@ -58,12 +60,10 @@
       }
     },
     methods: {
-      save () {
+      save() {
         let timeEntry = this.timeEntry
-        // We dispatch the timeEntry so it can be pushed
-        // onto the timeEntries array in the parent component
-        this.$dispatch('timeUpdate', timeEntry)
         this.timeEntry = {}
+        eventHub.$emit('save', timeEntry)
       }
     }
   }
