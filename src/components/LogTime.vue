@@ -62,8 +62,15 @@
     methods: {
       save() {
         let timeEntry = this.timeEntry
-        this.timeEntry = {}
         eventHub.$emit('save', timeEntry)
+        this.timeEntry = {
+          user: {
+            firstName: 'JJ',
+            lastName: 'Spetseris',
+            email: 'jj.spetseris@yahoo.com',
+            image: '/static/me.jpg'
+          }
+        }
       }
     }
   }
