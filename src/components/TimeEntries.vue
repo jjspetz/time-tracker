@@ -1,11 +1,11 @@
 <template>
   <div>
-    <button
-      v-if="$route.path !== '/time-entries/log-time'"
-      to="/time-entries/log-time"
-      class="btn btn-primary">
-      Log Time
-    </button>
+    <router-link to="/time-entries/log-time"
+    v-if="$route.path !== '/time-entries/log-time'">
+      <button class="btn btn-primary">
+        Log Time
+      </button>
+    </router-link>
 
     <div v-if="$route.path === '/time-entries/log-time'">
       <h3>Log Time</h3>
@@ -70,10 +70,10 @@
       // We want to start with an existing time entry
       let existingEntry = {
         user: {
-          firstName: 'Ryan',
-          lastName: 'Chenkie',
-          email: 'ryanchenkie@gmail.com',
-          image: 'https://1.gravatar.com/avatar/7f4ec37467f2f7db6fffc7b4d2cc8dc2?s=250'
+          firstName: 'JJ',
+          lastName: 'Spetseris',
+          email: 'jj.spetseris@yahoo.com',
+          image: '/static/me.jpg'
         },
         comment: 'First time entry',
         totalTime: 1.5,
