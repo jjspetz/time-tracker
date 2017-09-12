@@ -54,7 +54,7 @@
             firstName: 'JJ',
             lastName: 'Spetseris',
             email: 'jj.spetseris@yahoo.com',
-            image: '/docs/static/portrait.png'
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUdFBZbl_qSONKU9QF_c_hIIpEJON0YLUnbLWQy78kLfa_rwZs_g'
           }
         }
       }
@@ -69,7 +69,7 @@
               firstName: 'JJ',
               lastName: 'Spetseris',
               email: 'jj.spetseris@yahoo.com',
-              image: '/docs/static/portrait.png'
+              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUdFBZbl_qSONKU9QF_c_hIIpEJON0YLUnbLWQy78kLfa_rwZs_g'
             }
           }
         }
