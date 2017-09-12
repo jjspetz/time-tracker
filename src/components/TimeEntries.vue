@@ -75,7 +75,7 @@
           firstName: 'JJ',
           lastName: 'Spetseris',
           email: 'jj.spetseris@yahoo.com',
-          image: '/static/me.jpg'
+          image: './assets/portrait.png'
         },
         comment: 'First time entry',
         totalTime: 1.5,
