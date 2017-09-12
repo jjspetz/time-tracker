@@ -3,7 +3,7 @@
     <h1>Time Tracker</h1>
     <p>
       <strong>
-        Get started by <router-link tag="a" to="/time-entries">creating a time entry</router-link>.
+        Get started by <router-link tag="a" to="/time-entries/log-time">creating a time entry</router-link>.
       </strong>
     </p>
   </div>

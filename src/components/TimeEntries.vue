@@ -69,7 +69,7 @@
 
   export default {
     data () {
-      // We want to start with an existing time entry
+      // Example entry for testing
       let existingEntry = {
         user: {
           firstName: 'JJ',
@@ -82,9 +82,8 @@
         date: '2016-04-08'
       }
       return {
-        // Start out with the existing entry
-        // by placing it in the array
-        timeEntries: [existingEntry]
+        // Start out with no entries
+        timeEntries: []
       }
     },
     created: function () {
@@ -97,7 +96,8 @@
       deleteTimeEntry (timeEntry) {
         // Get the index of the clicked time entry and splice it out
         let index = this.timeEntries.indexOf(timeEntry)
-        if (window.confirm('Are you sure you want to delete this time entry?')) {
+        eventHub.$emit('delete-time', timeEntry.totalTime)
+        if (window.confirm('Are you sure you want to delete this?')) {
           this.timeEntries.splice(index, 1)
         }
       },
@@ -105,12 +105,12 @@
         this.timeEntries.push(timeEntry)
       }
     },
-    events: {
-      timeUpdate (timeEntry) {
-        this.timeEntries.push(timeEntry)
-        return true
-      }
-    }
+    // events: {
+    //   timeUpdate (timeEntry) {
+    //     this.timeEntries.push(timeEntry)
+    //     return true
+    //   }
+    // }
   }
 </script>
 

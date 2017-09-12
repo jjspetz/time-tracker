@@ -14,7 +14,7 @@
     </nav>
     <div class="container">
       <div class="col-sm-3">
-
+        <sidebar v-bind:time="totalTime"></sidebar>
       </div>
       <div class="col-sm-9">
         <router-view></router-view>
@@ -24,9 +24,33 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+import Sidebar from './components/Sidebar'
+import eventHub from './EventHub'
+
+  export default {
+    components: { 'sidebar': Sidebar },
+    data () {
+      return {
+        totalTime: 0
+      }
+    },
+    created: function () {
+      eventHub.$on('save', this.count)
+      eventHub.$on('delete-time', this.deleteTime)
+    },
+    beforeDestroy: function () {
+      eventHub.$off('save', this.count)
+      eventHub.$off('delete-time', this.deleteTime)
+    },
+    methods: {
+      count(timeEntry) {
+        this.totalTime += parseFloat(timeEntry.totalTime)
+      },
+      deleteTime(time) {
+        this.totalTime -= parseFloat(time)
+      }
+    }
+  }
 </script>
 
 <style>
